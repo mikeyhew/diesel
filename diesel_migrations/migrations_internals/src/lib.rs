@@ -331,6 +331,8 @@ where
     conn.transaction(|| {
         if migration.version() != "00000000000000" {
             writeln!(output, "Running migration {}", name(&migration))?;
+
+            dbg!(migration);
         }
         if let Err(e) = migration.run(conn) {
             dbg!(migration);
