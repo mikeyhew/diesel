@@ -46,6 +46,7 @@ pub fn file_name<'a>(migration: &'a dyn Migration, sql_file: &'a str) -> Migrati
 
 impl<'a> fmt::Display for MigrationFileName<'a> {
     fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        panic!("fucking work already");
         if let Some(path) = self.migration.file_path() {
             let fpath = path.join(self.sql_file);
             f.write_str(fpath.to_str().unwrap_or("Invalid utf8 in filename"))
