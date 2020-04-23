@@ -333,6 +333,7 @@ where
             writeln!(output, "Running migration {}", name(&migration))?;
         }
         if let Err(e) = migration.run(conn) {
+            dbg!(migration);
             writeln!(
                 output,
                 "Executing migration script {}",
